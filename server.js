@@ -3,11 +3,14 @@ require("dotenv").config();
 const express = require("express"); //require the package
 const mongoose = require("mongoose");
 const workoutRoutes = require("./routes/workouts");
+const cors = require("cors");
+
 
 //express app
 const app = express(); //assing to a variable and assign the function to it
 
 //MIDDLEWARE
+app.use(cors());
 //Built-in Express middleware allows access to the request (req) properties when a request comes in.
 app.use(express.json());
 //midd to see req and res
