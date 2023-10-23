@@ -8,4 +8,4 @@ const router = express.Router();
 app.use("/signup", signUp);
 app.use("/login", login);
 
-module.exports = rouTER;
+module.exports = router;
