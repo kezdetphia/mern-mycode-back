@@ -9,11 +9,7 @@ const {
   getOneWorkout,
 } = require("../controllers/workoutController");
 
-//import workout model to be able to manipulate the schema/db
-const Workout = require('../models/workoutModel')
-
 const router = express.Router()
-
 
 //All route starts with api/workouts/...
 //
