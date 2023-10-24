@@ -24,7 +24,7 @@ const userSchema = new Schema({
 // Mongoose model statics is a custom function that can be called just like create etc...
 //In this snipept it secures the password
 // Applies to the whole model rather than a specific instance
-userSchema.statics.signup = async({email, password})=>{
+userSchema.statics.signup = async function({email, password}){
   const emailExists = this.findOne(email)
 
   if (emailExists) throw Error('Email is already registered')
