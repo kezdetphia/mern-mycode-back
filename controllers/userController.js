@@ -1,23 +1,16 @@
-const mongoose = require('mongoose')
-const User = require('../models/userModel')
-
-
+const User = require("../models/userModel");
 
 // signup user
-const signupUser = async()=>{
-  res.json({mssg: 'signup'})
-}
-  
-  
-  
-  // login user
-  const loginUser = async()=>{
-  res.json({mssg: 'login'})
-  }
+const signupUser = async (req,res) => {
+  res.json({ mssg: "signup" });
+};
 
+// login user
+const loginUser = async (req,res) => {
+  res.json({ mssg: "login" });
+};
 
-
-  module.exports = {
-    signupUser,
-    loginUser
-  }
+module.exports = {
+  signupUser,
+  loginUser,
+};
