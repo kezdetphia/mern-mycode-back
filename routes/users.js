@@ -4,8 +4,6 @@ const { loginUser, signupUser } = require("../controllers/userController");
 
 const router = express.Router();
 
-
-
 // all routes start with /api/users
 
 // signup route
