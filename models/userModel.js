@@ -20,9 +20,10 @@ const userSchema = new Schema({
 }
 )
 
-// Static signup method
 // -Mongoose model statics is a custom function that can be called just like create etc...
 // -Applies to the whole model rather than a specific instance
+
+// Static signup method
 userSchema.statics.signup = async function(email, password){
 
   // validaton(using validator package)
@@ -40,6 +41,24 @@ userSchema.statics.signup = async function(email, password){
   const user = await this.create({email, password: hash})
 
   return user
+}
+
+
+// static login method
+userSchema.statics.login = async function (email, password){
+  // check if there's an email or password
+  if (!email || !password) throw Error('All fields must be filled')
+  // find the user in DB based on email address
+  const user = await this.findOne({email})
+  // no user -> Error message
+  if (!user) throw Error("Invalid username")
+  // matching input password to password in DB
+  const match = await bcrypt.compare(password, user.password)
+
+  if(!match) throw Error('Incorrect password')
+
+  return user
+
 }
 
 
