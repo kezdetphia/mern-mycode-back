@@ -9,7 +9,12 @@ const {
   getOneWorkout,
 } = require("../controllers/workoutController");
 
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+// require auth for all workouts
+router.use(requireAuth);
 
 //All route starts with api/workouts/...
 //
