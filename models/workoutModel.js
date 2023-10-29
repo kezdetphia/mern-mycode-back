@@ -17,8 +17,8 @@ const workoutSchema = new Schema(
       required: true,
     },
     user_id: {
-      typer: String,
-      required: true
+      type: String,
+      required: true,
     }
   },
   {

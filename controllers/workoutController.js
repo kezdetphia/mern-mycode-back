@@ -5,8 +5,10 @@ const mongoose = require('mongoose')
 
 // GET all workouts
 const getAlWorkouts = async(req,res)=>{
+  // req.user middleware property
+  const user_id = req.user._id
   try{
-    const workouts = await Workout.find({}).sort({createdAt: -1}) //empty curly brace is essential in find func
+    const workouts = await Workout.find({user_id}).sort({createdAt: -1}) //empty curly brace is essential in find func
     res.status(200).json(workouts)
   }catch(err){
     res.status(400).json({error: err.message})
