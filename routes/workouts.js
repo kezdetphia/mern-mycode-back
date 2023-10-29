@@ -14,6 +14,7 @@ const requireAuth = require('../middleware/requireAuth')
 const router = express.Router()
 
 // require auth for all workouts
+// call before any route to protect them, makes sure it's authenticated
 router.use(requireAuth);
 
 //All route starts with api/workouts/...
