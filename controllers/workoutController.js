@@ -25,7 +25,6 @@ const getOneWorkout = async(req,res)=>{
 }
 
 
-
 // POST new workout
 const createWorkout = async(req,res)=>{
   const {title, reps, load} = req.body
@@ -47,7 +46,9 @@ const createWorkout = async(req,res)=>{
 
 
   try{
-    const workout = await Workout.create({title, reps, load})
+    // req.user property comes from custom middleware
+    const user_id = req.user._id
+    const workout = await Workout.create({title, reps, load, user_id})
     res.status(200).json(workout)
     console.log(`A new workout is successfully saved to the database`)
   }catch(err){
