@@ -5,13 +5,13 @@ const {
 } = require('../controllers/codeController')
 
 
-// const requireAuth = require('../middleware/requireAuth')
+const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
 // middleware routes protection
 
-// router.use(requireAuth)
+router.use(requireAuth)
 
 // GET all code
 router.get('/', getAllCodes)

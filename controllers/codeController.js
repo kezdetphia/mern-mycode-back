@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 // GET all code
 const getAllCodes = async (req, res) => {
-  // const user_id = req.user._id;
+  const user_id = req.user._id;
   try {
     const codes = await Code.find({ user_id }).sort({ createdAt: -1 });
     res.status(200).json(codes);
@@ -26,9 +26,15 @@ const getOneCode = async (req, res) => {
 // CREATE one code
 const createCode = async (req, res) => {
   const { title, description, langauge, code } = req.body;
-  // const user_id = req.user._id
+  const user_id = req.user._id
   try {
-    const sentCode = await Code.create({ title, description, langauge, code, });
+    const sentCode = await Code.create({
+      title,
+      description,
+      langauge,
+      code,
+      user_id,
+    });
     res.status(201).json(sentCode);
     console.log('A new code is added')
   } catch (error) {
