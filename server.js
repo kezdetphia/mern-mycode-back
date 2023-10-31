@@ -7,6 +7,8 @@ const cors = require("cors");
 const workoutRoutes = require("./routes/workouts");
 const userRoutes = require("./routes/users");
 
+const codeRoutes = require("./routes/codes");
+
 
 //express app
 const app = express(); //assing to a variable and assign the function to it
@@ -24,6 +26,8 @@ app.use((req, res, next) => {
 //Routes
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/users", userRoutes);
+
+app.use('/api/code', codeRoutes)
 
 //connect to db
 mongoose
