@@ -7,7 +7,7 @@ const cors = require("cors");
 const workoutRoutes = require("./routes/workouts");
 const userRoutes = require("./routes/users");
 
-const userRoutes = require("./routes/codes");
+const codeRoutes = require("./routes/codes");
 
 
 //express app
