@@ -12,7 +12,7 @@ const workoutSchema = new Schema(
       type: Number,
       required: true,
     },
-    load: {
+    load: { 
       type: Number,
       required: true,
     },
