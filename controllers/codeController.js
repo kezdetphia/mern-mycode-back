@@ -26,7 +26,7 @@ const getOneCode = async (req, res) => {
 
 // CREATE one code
 const createCode = async (req, res) => {
-  const { title, description, langauge, code } = req.body;
+  const { title, description, language, code } = req.body;
   try {
     // req.user property comes from custom middleware
     const user_id = req.user._id
