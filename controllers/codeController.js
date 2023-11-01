@@ -48,8 +48,9 @@ const createCode = async (req, res) => {
 const deleteCode = async(req, res) => {
   const {id} = req.params;
   try {
+    console.log('deletecontroller id', id)
     const deletedCode = await Code.findByIdAndDelete(id);
-    res.status(400).json(deletedCode);
+    res.status(200).json(deletedCode);
     console.log(`${id} has been deleted`);
   } catch (error) {
     res.status(400).json({ deleteCodeError: error.message });
