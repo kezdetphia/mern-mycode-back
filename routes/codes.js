@@ -17,7 +17,7 @@ router.use(requireAuth)
 router.get('/', getAllCodes)
 
 // GET a single code
-router.get('./:id', getOneCode)
+router.get('/:id', getOneCode)
 
 // POST a new code
 router.post('/', createCode)

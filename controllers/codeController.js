@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 // GET all code
 const getAllCodes = async (req, res) => {
+  // req.user middleware property
   const user_id = req.user._id;
   try {
     const codes = await Code.find({ user_id }).sort({ createdAt: -1 });
@@ -14,9 +15,9 @@ const getAllCodes = async (req, res) => {
 
 // GET one code
 const getOneCode = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
-    const code = await Code.findById(_id);
+    const code = await Code.findById(id);
     res.status(200).json(code);
   } catch (error) {
     res.status(400).json({ getOneCodeError: error.message });
@@ -26,8 +27,9 @@ const getOneCode = async (req, res) => {
 // CREATE one code
 const createCode = async (req, res) => {
   const { title, description, langauge, code } = req.body;
-  const user_id = req.user._id
   try {
+    // req.user property comes from custom middleware
+    const user_id = req.user._id
     const sentCode = await Code.create({
       title,
       description,
@@ -43,11 +45,12 @@ const createCode = async (req, res) => {
 };
 
 // DELETE one code
-const deleteCode = async (req, res) => {
-  const { _id } = req.params;
+const deleteCode = async(req, res) => {
+  const {id} = req.params;
   try {
-    const deletedCode = await Code.findByIdAndDelete({ _id });
+    const deletedCode = await Code.findByIdAndDelete(id);
     res.status(400).json(deletedCode);
+    console.log(`${id} has been deleted`);
   } catch (error) {
     res.status(400).json({ deleteCodeError: error.message });
   }
