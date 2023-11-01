@@ -33,7 +33,7 @@ const createCode = async (req, res) => {
     const sentCode = await Code.create({
       title,
       description,
-      langauge,
+      language,
       code,
       user_id,
     });
