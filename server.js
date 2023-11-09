@@ -4,9 +4,7 @@ const express = require("express"); //require the package
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const workoutRoutes = require("./routes/workouts");
 const userRoutes = require("./routes/users");
-
 const codeRoutes = require("./routes/codes");
 
 
@@ -24,9 +22,7 @@ app.use((req, res, next) => {
 });
 
 //Routes
-app.use("/api/workouts", workoutRoutes);
 app.use("/api/users", userRoutes);
-
 app.use('/api/codes', codeRoutes)
 
 //connect to db
