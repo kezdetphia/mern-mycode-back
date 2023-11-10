@@ -21,6 +21,15 @@ const userSchema = new Schema(
   }
 );
 
+const passwordValidationOptions = {
+  minLength: 6, // Set a lower minimum length
+  minLowercase: 0, // Allow passwords with no lowercase letters
+  minUppercase: 0, // Allow passwords with no uppercase letters
+  minNumbers: 0, // Allow passwords with no numbers
+  minSymbols: 0, // Allow passwords with no symbols
+  returnScore: false,
+};
+
 // -Mongoose model statics is a custom function that can be called just like create etc...
 // -Applies to the whole model rather than a specific instance
 
@@ -29,7 +38,7 @@ userSchema.statics.signup = async function (email, password) {
   // validaton(using validator package)
   if (!email || !password) throw Error("All fields must be filled");
   if (!validator.isEmail(email)) throw Error("Invalid email");
-  if (!validator.isStrongPassword(password))
+  if (!validator.isStrongPassword(password, passwordValidationOptions))
     throw Error("Password not strong enough");
 
   // check database for existing email
