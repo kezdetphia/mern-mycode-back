@@ -1,10 +1,10 @@
-# myCode Backend
+# myCode MERN Stack Webapp Back-End
 
 ## Project Overview
 
 Welcome to the backend repository of myCode – a robust web application designed for efficient code management. This backend component serves as the RESTful API, powered by Node.js and Express, and stores data in MongoDB.
 
-For the frontend counterpart, please refer to [myCode Frontend Repository](https://github.com/kezdetphia/mern-mycode-front). The live application is deployed on Netlify.
+For the frontend counterpart, please refer to [mern-mycode-front](https://github.com/kezdetphia/mern-mycode-front). The live application is deployed on Netlify https://deluxe-froyo-98610e.netlify.app/ .
 
 ## Technologies
 
