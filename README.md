@@ -24,8 +24,7 @@ The backend exposes the following example for a RESTful API endpoint:
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-backend-repo.git
+   git clone git@github.com:kezdetphia/mern-mycode-back.git
 
 cd your-backend-repo
 npm install
